@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.SimpleNotificationService" Version="3.3.1.14" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intgr.Interfaces\Intgr.Interfaces.csproj" />
+    <ProjectReference Include="..\Intgr.Models\Intgr.Models.csproj" />
+    <ProjectReference Include="..\Intgr.Worker\Intgr.Worker.csproj" />
+  </ItemGroup>
+
+</Project>
