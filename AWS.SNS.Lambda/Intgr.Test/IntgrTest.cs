@@ -1,7 +1,9 @@
+
 using Intgr.DI.Attributes;
 using Intgr.Interfaces.Functions;
 using Intgr.Models.Requests;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace Intgr.Test
 {
@@ -25,6 +27,22 @@ namespace Intgr.Test
             };
             string messageId = funcMessageService.SendMessage(request);
             Assert.IsNotNull(messageId);
+        }
+
+        [TestMethod]
+        public void SSNSendMessagePinPoint() {
+
+            IFuncPinPointSender funcPinPointSender = (IFuncPinPointSender)DI.Injection.DIServiceProvider.GetService(typeof(IFuncPinPointSender));
+            MessageRequest request = new MessageRequest
+            {
+                PhoneNumber = "4023509079",
+                Message = "Here is my sms"
+            };
+            string messageId = funcPinPointSender.SendSMSMessage(request);
+
+
+            Assert.IsNotNull(messageId);
+
         }
     }
 }

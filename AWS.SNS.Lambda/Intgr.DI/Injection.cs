@@ -1,5 +1,6 @@
 ﻿using Intgr.Interfaces.Functions;
 using Intgr.Interfaces.Provider;
+using Intgr.Interfaces.Providers;
 using Intgr.Worker.Functions;
 using Intgr.Worker.Providers;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +24,10 @@ namespace Intgr.DI
 
             services.AddSingleton<ISimpleNotificationServiceProvider, SimpleNotificationServiceProvider>();
             services.AddSingleton<IFuncMessageSender, FuncMessageSender>();
+
+            services.AddSingleton<IPinPointServiceProvider, PinPointServiceProvider>();
+            services.AddSingleton<IFuncPinPointSender, FuncPinPointSender>();
+
             serviceProvider = services.BuildServiceProvider();
         }
     }
